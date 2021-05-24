@@ -16,6 +16,9 @@
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,sass,less,md,json}'",
     "lint": "eslint . --fix --ext .ts,.tsx,.js,.jsx"
   },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
   "dependencies": {
     "gatsby": "^3.4.1",
     "gatsby-plugin-manifest": "^3.5.0",
