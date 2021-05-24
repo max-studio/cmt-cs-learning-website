@@ -12,7 +12,9 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,sass,less,md,json}'",
+    "lint": "eslint . --fix --ext .ts,.tsx,.js,.jsx"
   },
   "dependencies": {
     "gatsby": "^3.4.1",
