@@ -1,54 +1,108 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# 概览
 
-## 🚀 Quick start
+1. clone 项目
 
-1.  **Create a Gatsby site.**
+```bash
+$ git clone --recurse-submodules https://github.com/max-studio/cmt-cs-learning-website.git
+```
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+`--recurse-submodules` 选项是必选的，若在 clone 时没有添加该选项，也可以在 clone 后的项目目录中执行：
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+```bash
+$ git submodule update --init --recursive
+```
 
-2.  **Start developing.**
+2. 依赖安装
 
-    Navigate into your new site’s directory and start it up.
+进入项目目录中，执行以下命令：
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+```bash
+$ yarn
+```
 
-3.  **Open the code and start customizing!**
+3. 本地运行
 
-    Your site is now running at http://localhost:8000!
+启动本地服务：
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+```bash
+$ yarn start
+```
 
-4.  **Learn more**
+4. 格式化代码
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+格式化代码执行：
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+```bash
+$ yarn prettier
+```
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+5. 检测语法错误
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+语法检测请执行以下命令：
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+```bash
+$ yarn lint
+```
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+6. 项目打包
 
-## 🚀 Quick start (Gatsby Cloud)
+打包请执行：
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+```bash
+$ yarn build
+$ cd public
+$ tar -cf dist.tar *
+$ cd ..
+```
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+# 贡献代码
+
+1. fork 项目
+
+将项目 fork 到你自己的 repositories 中，并采用概览中的方式 clone 至本地计算机。
+
+2. 添加上游仓库
+
+在项目目录中执行
+
+```bash
+$ git remote add upstream https://github.com/max-studio/cmt-cs-learning-website.git
+```
+
+添加上游仓库（源仓库）。
+
+3. 同步代码
+
+使用
+
+```bash
+$ git pull upstream master
+```
+
+同步上游仓库代码。
+
+4. 添加你的代码
+
+在编写自己的代码之前，必须要同步上游仓库代码并解决冲突。解决所有冲突后，在项目中编写你的代码。
+
+3. commit
+
+在终端中输入
+
+```bash
+$ git commit
+```
+
+此时，会提示你选择本次提交的类型、主题等等信息，根据提示输入对应信息即可。
+
+4. 推送
+
+使用
+
+```bash
+$ git push origin 分支名
+```
+
+提交到你的 repositories。
+
+5. 创建 Pull Request
