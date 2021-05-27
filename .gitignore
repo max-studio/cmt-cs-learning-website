@@ -4,3 +4,5 @@ public
 # content
 package-lock.json
 .vscode
+.DS_Store
+.idea
