@@ -13,12 +13,12 @@ module.exports = {
     },
     'gatsby-transformer-remark',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'pages',
-        path: './src/pages/',
+        name: `markdown`,
+        path: `./content`,
+        ignore: [`**/\.*`, '**/LICENSE'], // ignore files starting with a dot
       },
-      __key: 'pages',
     },
   ],
 };
