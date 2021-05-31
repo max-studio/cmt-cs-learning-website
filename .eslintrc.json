@@ -26,6 +26,7 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "no-shadow": "error"
+    "no-shadow": "error",
+    "no-console": "error"
   }
 }
