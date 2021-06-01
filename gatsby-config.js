@@ -3,6 +3,7 @@ module.exports = {
     title: 'CMT CS Learning Website',
   },
   plugins: [
+    `gatsby-plugin-layout`,
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     {
