@@ -27,6 +27,28 @@
   "rules": {
     "prettier/prettier": "error",
     "no-shadow": "error",
-    "no-console": "error"
+    "no-console": "error",
+    "consistent-return": "error",
+    "curly": "error",
+    "default-case": "error",
+    "default-case-last": "error",
+    "default-param-last": "error",
+    "eqeqeq": "error",
+    "no-alert": "error",
+    "no-constructor-return": "error",
+    "no-else-return": "error",
+    "no-eval": "error",
+    "no-extend-native": "error",
+    "no-implied-eval": "error",
+    "no-lone-blocks": "error",
+    "no-proto": "error",
+    "no-return-await": "error",
+    "no-self-compare": "error",
+    "require-await": "error",
+    "prefer-const": "error",
+    "no-use-before-define": "error",
+    "no-duplicate-imports": "error",
+    "no-var": "error",
+    "rest-spread-spacing": ["error", "never"]
   }
 }
