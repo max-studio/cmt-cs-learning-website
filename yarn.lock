@@ -3579,6 +3579,15 @@ cli-width@^3.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-3.0.0.tgz#a2f48437a2caa9a22436e794bf071ec9e61cedf6"
   integrity sha512-FxqpkPPwu1HjuN93Omfm4h8uIanXofW0RxVEW3k5RKx+mJJYSthzNhp32Kzxxy3YAEZ/Dc/EWN1vZRY0+kOhbw==
 
+clipboard@^2.0.0:
+  version "2.0.8"
+  resolved "https://registry.npm.taobao.org/clipboard/download/clipboard-2.0.8.tgz#ffc6c103dd2967a83005f3f61976aa4655a4cdba"
+  integrity sha1-/8bBA90pZ6gwBfP2GXaqRlWkzbo=
+  dependencies:
+    good-listener "^1.2.2"
+    select "^1.1.2"
+    tiny-emitter "^2.0.0"
+
 clipboardy@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/clipboardy/-/clipboardy-2.3.0.tgz#3c2903650c68e46a91b388985bc2774287dba290"
@@ -4587,6 +4596,11 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
+
+delegate@^3.1.2:
+  version "3.2.0"
+  resolved "https://registry.npm.taobao.org/delegate/download/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
+  integrity sha1-tmtxwxWFIuirV0T3INjKDCr1kWY=
 
 delegates@^1.0.0:
   version "1.0.0"
@@ -6390,6 +6404,15 @@ gatsby-remark-images@^5.3.0:
     unist-util-select "^3.0.4"
     unist-util-visit-parents "^3.1.1"
 
+gatsby-remark-prismjs@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.nlark.com/gatsby-remark-prismjs/download/gatsby-remark-prismjs-5.3.0.tgz#5b082f03daec8d281d07b60b71428f6ac37e1af2"
+  integrity sha1-WwgvA9rsjSgdB7YLcUKPasN+GvI=
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    parse-numeric-range "^1.2.0"
+    unist-util-visit "^2.0.3"
+
 gatsby-source-filesystem@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-3.5.0.tgz#b25645c663a8c188dece11de6c9ace5872316180"
@@ -6936,6 +6959,13 @@ globby@^6.1.0:
     object-assign "^4.0.1"
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
+
+good-listener@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npm.taobao.org/good-listener/download/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
+  integrity sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
+  dependencies:
+    delegate "^3.1.2"
 
 got@8.3.2, got@^8.3.1:
   version "8.3.2"
@@ -10423,6 +10453,11 @@ parse-latin@^4.0.0:
     unist-util-modify-children "^2.0.0"
     unist-util-visit-children "^1.0.0"
 
+parse-numeric-range@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npm.taobao.org/parse-numeric-range/download/parse-numeric-range-1.2.0.tgz#aa70b00f29624ed13e9f943e9461b306e386b0fa"
+  integrity sha1-qnCwDyliTtE+n5Q+lGGzBuOGsPo=
+
 parse-passwd@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/parse-passwd/download/parse-passwd-1.0.0.tgz#6d5b934a456993b23d37f40a382d6f1666a8e5c6"
@@ -11090,6 +11125,13 @@ pretty-format@^25.5.0:
     ansi-regex "^5.0.0"
     ansi-styles "^4.0.0"
     react-is "^16.12.0"
+
+prismjs@^1.23.0:
+  version "1.23.0"
+  resolved "https://registry.npm.taobao.org/prismjs/download/prismjs-1.23.0.tgz#d3b3967f7d72440690497652a9d40ff046067f33"
+  integrity sha1-07OWf31yRAaQSXZSqdQP8EYGfzM=
+  optionalDependencies:
+    clipboard "^2.0.0"
 
 probe-image-size@^6.0.0:
   version "6.0.0"
@@ -12125,6 +12167,11 @@ select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
+
+select@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npm.taobao.org/select/download/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
+  integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
 
 selfsigned@^1.10.8:
   version "1.10.11"
@@ -13226,6 +13273,11 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
+
+tiny-emitter@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/tiny-emitter/download/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
+  integrity sha1-HRpW7fxRxD6GPLtTgqcjMONVVCM=
 
 tinycolor2@^1.4.1:
   version "1.4.2"
