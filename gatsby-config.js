@@ -34,7 +34,14 @@ module.exports = {
       options: {
         name: `markdown`,
         path: `./content`,
-        ignore: [`**/\.*`, '**/LICENSE'], // ignore files starting with a dot
+        ignore: [
+          `**/\.*`,
+          '**/LICENSE',
+          '**/README.*',
+          '**/CONTRIBUTING.*',
+          '**/贡献文档.*',
+          '**/规范手册.*',
+        ], // ignore files starting with a dot
       },
     },
   ],
