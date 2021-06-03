@@ -20,6 +20,7 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "antd": "^4.16.1",
     "gatsby": "^3.4.1",
     "gatsby-plugin-layout": "^2.6.0",
     "gatsby-plugin-manifest": "^3.5.0",
