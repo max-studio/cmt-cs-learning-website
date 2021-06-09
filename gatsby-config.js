@@ -7,12 +7,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        icon: 'src/images/icon.png',
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-manifest',
+    //   options: {
+    //     icon: 'src/images/icon.png',
+    //   },
+    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
