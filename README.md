@@ -1,4 +1,4 @@
-# 概览
+# 开始
 
 1. clone 项目
 
@@ -20,7 +20,13 @@ $ git submodule update --init --recursive
 $ yarn
 ```
 
-3. 本地运行
+3. 初始化项目（重要）
+
+```bash
+$ yarn prepare
+```
+
+4. 本地运行
 
 启动本地服务：
 
@@ -28,23 +34,7 @@ $ yarn
 $ yarn start
 ```
 
-4. 格式化代码
-
-格式化代码执行：
-
-```bash
-$ yarn prettier
-```
-
-5. 检测语法错误
-
-语法检测请执行以下命令：
-
-```bash
-$ yarn lint
-```
-
-6. 项目打包
+5. 项目打包
 
 打包请执行：
 
@@ -53,6 +43,24 @@ $ yarn build
 $ cd public
 $ tar -cf dist.tar *
 $ cd ..
+```
+
+# 规范代码
+
+1. 格式化代码
+
+格式化代码执行：
+
+```bash
+$ yarn prettier
+```
+
+2. 检测语法错误
+
+语法检测请执行以下命令：
+
+```bash
+$ yarn lint
 ```
 
 # 贡献代码
@@ -85,7 +93,7 @@ $ git pull upstream master
 
 在编写自己的代码之前，必须要同步上游仓库代码并解决冲突。解决所有冲突后，请先阅读 [规范文档](./docs/standard.md) 与 [项目架构](./docs/structure.md) 了解本项目的基本信息，然后就可以愉快地在项目中编写你的代码了。
 
-3. commit
+5. commit
 
 在终端中输入
 
@@ -95,7 +103,7 @@ $ git commit
 
 此时，会提示你选择本次提交的类型、主题等等信息，根据提示输入对应信息即可。
 
-4. 推送
+6. 推送
 
 使用
 
@@ -105,4 +113,4 @@ $ git push origin 分支名
 
 提交到你的 repositories。
 
-5. 创建 Pull Request
+7. 创建 Pull Request
