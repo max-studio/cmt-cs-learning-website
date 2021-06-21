@@ -1,0 +1,12 @@
+.pageHeader {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+  width: 335px;
+  padding: 0 24px;
+}
+
+.pageHeader :global(.ant-page-header-heading-title) {
+  font-size: 30px;
+  line-height: 50px;
+}
