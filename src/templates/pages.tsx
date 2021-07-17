@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import Footer from '../components/footer/index';
 import AnchorWay from '../components/anchor/index';
 import * as center from './pages.module.css';
-
 interface PagesProps {
   data: {
     markdownRemark: {
@@ -13,29 +12,33 @@ interface PagesProps {
 }
 
 const Pages: React.FC<PagesProps> = ({ data }: PagesProps) => {
+  const html: any = { __html: data.markdownRemark.html };
+  const title = JSON.stringify(html).match(/<(h\d).*?>.*?<\/h\d>/g);
+  const hash: string[] = title.toString().replace(/<.*?>/g, '').split(',');
+  const newHash = hash.slice();
+  const change: any = JSON.stringify(html)
+    .replace(/\\r\\\n|\\r|\\n|\\n\\r|__html|:|{|}|"/g, '')
+    .replace(/<(h\d).*?/g, function (item) {
+      item = item + ' id="' + newHash[0] + '"';
+      newHash.shift();
+      return item;
+    });
+
   return (
     <main>
       <title>Home Page</title>
       <div className={center.center}>
         <div className={center.contents}>
-          <h1 id='components-anchor-demo-basic'>Basic demo</h1>
-          <h2>标题2</h2>
-          <h3>标题3</h3>
-          <h4>标题4</h4>
-          <h5>标题5</h5>
-          <h6 id='components-anchor-demo-static'>Static demo</h6>
-          <p>正文正文正文正文正文正文正文</p>
-          <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          <div dangerouslySetInnerHTML={{ __html: change }} />
         </div>
         <div className={center.anchorPosition}>
-          <AnchorWay />
+          <AnchorWay data={hash} />
         </div>
       </div>
       <Footer />
     </main>
   );
 };
-
 export const query = graphql`
   query MarkdownPagesQuery($id: String!) {
     markdownRemark(id: { eq: $id }) {

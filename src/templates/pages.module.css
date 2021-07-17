@@ -10,10 +10,6 @@
   box-sizing: border-box;
 }
 
-.center .contents h1,
-h2 {
-  border: none;
-}
 .center .anchorPosition {
   position: fixed;
   padding: 16px 0px;
