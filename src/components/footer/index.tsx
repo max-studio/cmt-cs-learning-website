@@ -61,6 +61,7 @@ const data: FooterData[] = [
       {
         icon: <QuestionCircleOutlined />,
         text: '反馈问题',
+        url: 'https://github.com/max-studio/CMT_CS_Learning/issues',
       },
       {
         icon: <FileMarkdownOutlined />,
@@ -103,29 +104,31 @@ const data: FooterData[] = [
 
 const Footer: React.FunctionComponent<FooterProps> = (props: FooterProps) => {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       {data.map((d, i) => (
-        <div className={styles.footerItem}>
-          <div className={styles.footerItemTitle} key={i}>
+        <nav className={styles.footerItem}>
+          <header className={styles.footerItemTitle} key={i}>
             {d.title}
-          </div>
+          </header>
           <ul className={styles.footerItemContent}>
             {d.contents.map((item, index) => (
-              <div>
+              <li>
                 {item.idx == 1 ? (
-                  <a href={item.url}>
-                    <li className={styles.footerItemList} key={index}>
-                      {item.icon && (
-                        <i className={styles.footerItemIcon}>{item.icon}</i>
-                      )}
-                      <span>{item.text}</span>
-                    </li>
+                  <a
+                    href={item.url}
+                    className={styles.footerItemList}
+                    key={index}
+                  >
+                    {item.icon && (
+                      <i className={styles.footerItemIcon}>{item.icon}</i>
+                    )}
+                    <span>{item.text}</span>
                   </a>
                 ) : (
                   <Link
+                    to={item.url}
                     className={styles.footerItemList}
                     key={index}
-                    to={item.url}
                   >
                     {item.icon && (
                       <i className={styles.footerItemIcon}>{item.icon}</i>
@@ -133,12 +136,12 @@ const Footer: React.FunctionComponent<FooterProps> = (props: FooterProps) => {
                     {item.text}
                   </Link>
                 )}
-              </div>
+              </li>
             ))}
           </ul>
-        </div>
+        </nav>
       ))}
-    </div>
+    </footer>
   );
 };
 export default Footer;

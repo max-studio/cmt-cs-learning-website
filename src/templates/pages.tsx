@@ -25,18 +25,18 @@ const Pages: React.FC<PagesProps> = ({ data }: PagesProps) => {
     });
 
   return (
-    <main>
+    <div>
       <title>Home Page</title>
       <div className={center.center}>
         <div className={center.contents}>
           <div dangerouslySetInnerHTML={{ __html: change }} />
         </div>
-        <div className={center.anchorPosition}>
+        <aside className={center.anchorPosition}>
           <AnchorWay data={hash} />
-        </div>
+        </aside>
       </div>
       <Footer />
-    </main>
+    </div>
   );
 };
 export const query = graphql`
