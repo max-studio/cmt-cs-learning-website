@@ -2,72 +2,120 @@ import React from 'react';
 import { Tree } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import * as styles from './index.module.css';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const Sider = () => {
+  const data = useStaticQuery(
+    graphql`
+      query MyQuery {
+        allFile(
+          sort: { fields: publicURL, order: ASC }
+          filter: { relativeDirectory: { ne: "Img" } }
+        ) {
+          edges {
+            node {
+              relativeDirectory
+              relativePath
+              extension
+              childMarkdownRemark {
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                }
+              }
+              name
+            }
+          }
+        }
+      }
+    `,
+  );
+
+  const pathToTree = (edges) => {
+    const root = [];
+    edges.forEach((edge) => {
+      if (edge.node.relativeDirectory !== '') {
+        let chain;
+        switch (edge.node.extension) {
+          case 'md':
+            chain = edge.node.relativePath.split('/');
+            break;
+          default:
+            chain = edge.node.relativeDirectory.split('/');
+            break;
+        }
+
+        let currentHierarchy = root;
+        chain.forEach((item, index) => {
+          const wantedNode = item;
+          const lastHierarchy = currentHierarchy;
+          // 遍历root是否已有该层级
+          currentHierarchy.forEach((element) => {
+            if (element.title === wantedNode) {
+              currentHierarchy = element.children;
+              return false;
+            }
+            return true;
+          });
+          if (lastHierarchy === currentHierarchy) {
+            const key = chain.slice(0, index + 1).join('/') + '/';
+            const newNode = {
+              title: wantedNode,
+              key: key,
+              isLeaf: false,
+              selectable: false,
+              children: [],
+            };
+            // 文件，最后一个字符不是"/“符号
+            if (index === chain.length - 1) {
+              newNode.children = undefined;
+              if (edge.node.childMarkdownRemark) {
+                newNode.isLeaf = true;
+                newNode.selectable = true;
+                if (edge.node.childMarkdownRemark.frontmatter.title !== '') {
+                  newNode.title = (
+                    <Link to={edge.node.childMarkdownRemark.fields.slug}>
+                      {edge.node.childMarkdownRemark.frontmatter.title}
+                    </Link>
+                  );
+                } else {
+                  newNode.title = (
+                    <Link to={edge.node.childMarkdownRemark.fields.slug}>
+                      {edge.node.name}
+                    </Link>
+                  );
+                }
+              }
+            }
+            currentHierarchy.push(newNode);
+            currentHierarchy = newNode.children;
+          }
+        });
+      } else if (edge.node.extension === 'md') {
+        const newNode = {
+          title: (
+            <Link to={edge.node.childMarkdownRemark.fields.slug}>
+              {edge.node.name}
+            </Link>
+          ),
+          key: edge.node.name + '/',
+          isLeaf: true,
+          selectable: true,
+        };
+        root.push(newNode);
+      }
+    });
+    return root;
+  };
+
   return (
     <Tree
       className={styles.tree}
       showLine
       switcherIcon={<DownOutlined />}
-      defaultExpandedKeys={['0-0-0']}
-      treeData={[
-        {
-          title: 'parent 1',
-          key: '0-0',
-          children: [
-            {
-              title: 'leaf',
-              key: '0-0-0',
-            },
-            {
-              title: 'leaf',
-              key: '0-0-1',
-            },
-          ],
-        },
-        {
-          title: 'parent 2',
-          key: '0-1',
-          children: [
-            {
-              title: 'leaf',
-              key: '0-0-2',
-            },
-            {
-              title: 'leaf',
-              key: '0-0-3',
-            },
-          ],
-        },
-        {
-          title: 'parent 3',
-          key: '0-2',
-          children: [
-            {
-              title: 'leaf',
-              key: '0-0-4',
-            },
-            {
-              title: 'leaf',
-              key: '0-0-5',
-            },
-          ],
-        },
-        {
-          title: 'parent 4',
-          key: '0-3',
-          children: [
-            {
-              title: 'leaf',
-              key: '0-0-6',
-            },
-            {
-              title: 'leaf',
-              key: '0-0-7',
-            },
-          ],
-        },
-      ]}
+      treeData={pathToTree(data.allFile.edges)}
     />
   );
 };
