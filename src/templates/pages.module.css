@@ -1,0 +1,23 @@
+.center {
+  width: 100%;
+  background: #ffffff;
+}
+
+.center .contents {
+  display: inline-block;
+  padding: 32px;
+  width: 866px;
+  box-sizing: border-box;
+}
+
+.center .anchorPosition {
+  position: fixed;
+  padding: 16px 0px;
+  width: 200px;
+  height: 200px;
+  right: 0px;
+  top: 0px;
+}
+li {
+  list-style: none;
+}
