@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Key } from 'react';
 import { Tree } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import * as styles from './index.module.css';
@@ -18,6 +18,7 @@ const Sider = () => {
               relativePath
               extension
               childMarkdownRemark {
+                id
                 fields {
                   slug
                 }
@@ -33,11 +34,17 @@ const Sider = () => {
     `,
   );
 
-  const pathToTree = (edges) => {
-    const root = [];
+  const pathToTree = (edges: any[]) => {
+    const root: {
+      title: string | JSX.Element;
+      key: string;
+      isLeaf: boolean;
+      selectable: boolean;
+      children?: any;
+    }[] = [];
     edges.forEach((edge) => {
       if (edge.node.relativeDirectory !== '') {
-        let chain;
+        let chain: string[];
         switch (edge.node.extension) {
           case 'md':
             chain = edge.node.relativePath.split('/');
@@ -61,13 +68,20 @@ const Sider = () => {
           });
           if (lastHierarchy === currentHierarchy) {
             const key = chain.slice(0, index + 1).join('/') + '/';
-            const newNode = {
+            const newNode: {
+              title: string | JSX.Element;
+              key: string;
+              isLeaf: boolean;
+              selectable: boolean;
+              children: any;
+            } = {
               title: wantedNode,
               key: key,
               isLeaf: false,
               selectable: false,
               children: [],
             };
+
             // 文件，最后一个字符不是"/“符号
             if (index === chain.length - 1) {
               newNode.children = undefined;
@@ -76,13 +90,19 @@ const Sider = () => {
                 newNode.selectable = true;
                 if (edge.node.childMarkdownRemark.frontmatter.title !== '') {
                   newNode.title = (
-                    <Link to={edge.node.childMarkdownRemark.fields.slug}>
+                    <Link
+                      to={edge.node.childMarkdownRemark.fields.slug}
+                      key={edge.node.childMarkdownRemark.id}
+                    >
                       {edge.node.childMarkdownRemark.frontmatter.title}
                     </Link>
                   );
                 } else {
                   newNode.title = (
-                    <Link to={edge.node.childMarkdownRemark.fields.slug}>
+                    <Link
+                      to={edge.node.childMarkdownRemark.fields.slug}
+                      key={edge.node.childMarkdownRemark.id}
+                    >
                       {edge.node.name}
                     </Link>
                   );
@@ -96,7 +116,10 @@ const Sider = () => {
       } else if (edge.node.extension === 'md') {
         const newNode = {
           title: (
-            <Link to={edge.node.childMarkdownRemark.fields.slug}>
+            <Link
+              to={edge.node.childMarkdownRemark.fields.slug}
+              key={edge.node.childMarkdownRemark.id}
+            >
               {edge.node.name}
             </Link>
           ),

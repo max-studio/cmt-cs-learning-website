@@ -13,7 +13,6 @@
   :global(.ant-input-search
     > .ant-input-group
     > .ant-input-group-addon:last-child) {
-  top: 50%;
   left: -456px;
   border-left: 1px solid #ddd;
   padding-left: 11px;
