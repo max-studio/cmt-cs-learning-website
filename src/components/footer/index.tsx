@@ -106,13 +106,13 @@ const Footer: React.FunctionComponent<FooterProps> = (props: FooterProps) => {
   return (
     <footer className={styles.footer}>
       {data.map((d, i) => (
-        <nav className={styles.footerItem}>
+        <nav className={styles.footerItem} key={i}>
           <header className={styles.footerItemTitle} key={i}>
             {d.title}
           </header>
           <ul className={styles.footerItemContent}>
             {d.contents.map((item, index) => (
-              <li>
+              <li key={index}>
                 {item.idx == 1 ? (
                   <a
                     href={item.url}

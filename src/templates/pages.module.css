@@ -1,23 +1,24 @@
 .center {
-  width: 100%;
+  position: relative;
+  width: 1066px;
   background: #ffffff;
+  overflow: hidden;
 }
 
 .center .contents {
   display: inline-block;
-  padding: 32px;
-  width: 866px;
-  box-sizing: border-box;
+  margin: 32px;
+  width: 802px;
 }
 
 .center .anchorPosition {
-  position: fixed;
+  position: absolute;
   padding: 16px 0px;
   width: 200px;
-  height: 200px;
-  right: 0px;
+  left: 866px;
   top: 0px;
 }
+
 li {
   list-style: none;
 }

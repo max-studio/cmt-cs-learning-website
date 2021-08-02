@@ -14,7 +14,7 @@ interface PagesProps {
 const Pages: React.FC<PagesProps> = ({ data }: PagesProps) => {
   const html: any = { __html: data.markdownRemark.html };
   const title = JSON.stringify(html).match(/<(h\d).*?>.*?<\/h\d>/g);
-  const hash: string[] = title.toString().replace(/<.*?>/g, '').split(',');
+  const hash = String(title).replace(/<.*?>/g, '').split(',');
   const newHash = hash.slice();
   const change: any = JSON.stringify(html)
     .replace(/\\r\\\n|\\r|\\n|\\n\\r|__html|:|{|}|"/g, '')
@@ -23,17 +23,15 @@ const Pages: React.FC<PagesProps> = ({ data }: PagesProps) => {
       newHash.shift();
       return item;
     });
-
   return (
     <div>
-      <title>Home Page</title>
       <div className={center.center}>
         <div className={center.contents}>
           <div dangerouslySetInnerHTML={{ __html: change }} />
         </div>
-        <aside className={center.anchorPosition}>
+        <div className={center.anchorPosition}>
           <AnchorWay data={hash} />
-        </aside>
+        </div>
       </div>
       <Footer />
     </div>
