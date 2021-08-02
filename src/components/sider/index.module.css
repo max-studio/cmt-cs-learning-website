@@ -8,7 +8,6 @@
   height: 100%;
   border-right: 1px solid #ddd;
   padding: 0 12px;
-  margin-right: 12px;
 }
 
 .tree :global(.ant-tree-list a) {
