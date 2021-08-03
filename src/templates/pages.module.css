@@ -19,6 +19,12 @@
   top: 0px;
 }
 
+:global(.ant-anchor-wrapper) {
+  max-height: 500vh !important;
+  padding: 16px 0px;
+  left: 1202px;
+}
+
 li {
   list-style: none;
 }
