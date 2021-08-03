@@ -6,10 +6,12 @@ const { Link } = Anchor;
 const AnchorWay = ({ data }: any) => {
   const hash: string[] = data;
   return (
-    <Anchor>
-      {hash.map((item, index) => (
-        <Link href={'#' + item} title={item} key={index} />
-      ))}
+    <Anchor affix={false}>
+      {hash.map((item, index) =>
+        item == 'null' ? null : (
+          <Link href={'#' + item} title={item} key={index} />
+        ),
+      )}
     </Anchor>
   );
 };
