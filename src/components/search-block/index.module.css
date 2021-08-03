@@ -4,7 +4,12 @@
   justify-content: center;
 }
 
+.search :global(.ant-input-group) {
+  display: flex;
+}
+
 .search :global(.ant-input-group .ant-input) {
+  width: 80%;
   margin-left: 48px;
   border: 0;
 }
@@ -13,7 +18,7 @@
   :global(.ant-input-search
     > .ant-input-group
     > .ant-input-group-addon:last-child) {
-  left: -456px;
+  order: -1;
   border-left: 1px solid #ddd;
   padding-left: 11px;
   background-color: #fff;
@@ -21,4 +26,8 @@
 
 .search :global(.ant-input-search-button) {
   border: 0;
+}
+
+.search :global(.ant-input:focus) {
+  box-shadow: none;
 }
