@@ -1,6 +1,6 @@
-import React, { Key } from 'react';
+import React from 'react';
 import { Tree } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { DownOutlined, FileMarkdownFilled } from '@ant-design/icons';
 import * as styles from './index.module.css';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
@@ -38,6 +38,7 @@ const Sider = () => {
     const root: {
       title: string | JSX.Element;
       key: string;
+      switcherIcon?: JSX.Element;
       isLeaf: boolean;
       selectable: boolean;
       children?: any;
@@ -71,6 +72,7 @@ const Sider = () => {
             const newNode: {
               title: string | JSX.Element;
               key: string;
+              switcherIcon?: JSX.Element;
               isLeaf: boolean;
               selectable: boolean;
               children: any;
@@ -88,6 +90,7 @@ const Sider = () => {
               if (edge.node.childMarkdownRemark) {
                 newNode.isLeaf = true;
                 newNode.selectable = true;
+                newNode.switcherIcon = <FileMarkdownFilled />;
                 if (edge.node.childMarkdownRemark.frontmatter.title !== '') {
                   newNode.title = (
                     <Link
@@ -124,6 +127,7 @@ const Sider = () => {
             </Link>
           ),
           key: edge.node.name + '/',
+          switcherIcon: <FileMarkdownFilled />,
           isLeaf: true,
           selectable: true,
         };

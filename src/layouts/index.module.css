@@ -1,4 +1,12 @@
+.page {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.page :global(.index-module--header--1zwUM) {
+  flex: 1 1 auto;
+}
+
 .main {
-  width: 100%;
   display: flex;
 }

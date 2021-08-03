@@ -11,10 +11,12 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
   const { children } = props;
   return (
     <div className='layout'>
-      <Header />
-      <div className={styles.main}>
-        <Sider />
-        {children}
+      <div className={styles.page}>
+        <Header />
+        <div className={styles.main}>
+          <Sider />
+          {children}
+        </div>
       </div>
     </div>
   );

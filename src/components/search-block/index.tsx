@@ -7,7 +7,7 @@ const { Search } = Input;
 const SearchBlock = () => {
   return (
     <Space direction='vertical' className={styles.search}>
-      <Search placeholder='请输入关键字' style={{ width: 500 }} />
+      <Search placeholder='请输入关键字' />
     </Space>
   );
 };
